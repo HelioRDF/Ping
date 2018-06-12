@@ -1,0 +1,55 @@
+[33mcommit 204f5563828a4fa62646e635b21edf005efcde27[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: HelioRDF <HelioRDF@users.noreply.github.com>
+Date:   Thu Jul 27 12:48:21 2017 -0300
+
+    Add files via upload
+
+[1mdiff --git a/Ping.class b/Ping.class[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0efa221[m
+Binary files /dev/null and b/Ping.class differ
+[1mdiff --git a/Ping.java b/Ping.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f5a2ce3[m
+[1m--- /dev/null[m
+[1m+++ b/Ping.java[m
+[36m@@ -0,0 +1,39 @@[m
+[32m+[m[32mimport java.io.BufferedReader;[m[41m[m
+[32m+[m[32mimport java.io.IOException;[m[41m[m
+[32m+[m[32mimport java.io.InputStreamReader;[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mpublic class Ping {[m[41m[m
+[32m+[m[41m[m
+[32m+[m	[32mpublic static void main(String[] args) throws IOException {[m[41m[m
+[32m+[m[41m[m
+[32m+[m		[32mString saida = executarComando("ping 8.8.8.9");[m[41m[m
+[32m+[m[41m[m
+[32m+[m	[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m	[32mpublic static String executarComando(String comando) throws IOException {[m[41m[m
+[32m+[m		[32mProcess processo = Runtime.getRuntime().exec(comando);[m[41m[m
+[32m+[m		[32mBufferedReader entrada = new BufferedReader(new InputStreamReader(processo.getInputStream()));[m[41m[m
+[32m+[m		[32mString saida = null, linha = null;[m[41m[m
+[32m+[m[41m[m
+[32m+[m		[32mwhile ((linha = entrada.readLine()) != null) {[m[41m[m
+[32m+[m			[32msaida = saida == null ? linha + "\n" : saida + linha + "\n";[m[41m[m
+[32m+[m[41m[m
+[32m+[m			[32mSystem.out.println("\nLinha:"+linha);[m[41m[m
+[32m+[m[41m			[m
+[32m+[m[41m[m
+[32m+[m			[32mif(linha.equalsIgnoreCase("Request timed out.")){[m[41m[m
+[32m+[m[41m[m
+[32m+[m				[32mSystem.out.println("Perca de pacote detectado.\n");[m[41m[m
+[32m+[m[41m[m
+[32m+[m			[32m}[m[41m[m
+[32m+[m[41m		[m
+[32m+[m		[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m		[32mSystem.out.println(saida);[m[41m[m
+[32m+[m[41m[m
+[32m+[m		[32mreturn saida;[m[41m[m
+[32m+[m[41m[m
+[32m+[m	[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[41m[m
